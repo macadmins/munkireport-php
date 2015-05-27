@@ -24,6 +24,7 @@ The default login/password is admin/admin - this can be changed by volume-bindin
 `docker run -d -v /data/munkireport -v /path/to/your/config.php:/app/config.php -p 80:80 macadmins/munkireport-php`
 
 The line to add looks like this (this is the password hash in the image):
+
 `$auth_config['admin'] = '$P$BDnkPOMPV0BMGL7YROrT9ITzwk3ZWz/';`
 
 The config_default.php file is sourced for initial settings. The above method will also apply if you wish to provide your own configuration for the MR-PHP application. Simply bind-mount the config.php file with your modifications.
