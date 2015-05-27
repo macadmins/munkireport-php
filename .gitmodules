@@ -1,0 +1,3 @@
+[submodule "munkireport-php"]
+	path = munkireport-php
+	url = https://github.com/munkireport/munkireport-php.git
