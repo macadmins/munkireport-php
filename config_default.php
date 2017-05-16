@@ -131,6 +131,18 @@
 	| config.php!. You can combine methods 2, 3 and 4
 	|
 	*/
+	if (isset($_ENV['AUTH_AD_DOMAIN_CONTROLLERS'])) {
+	    // Use AD configuration
+        $conf['auth']['auth_AD']['account_suffix'] = $_ENV['AUTH_AD_ACCOUNT_SUFFIX'];
+        $conf['auth']['auth_AD']['base_dn'] = isset($_ENV['AUTH_AD_BASE_DN']) ? $_ENV['AUTH_AD_BASE_DN'] : null;
+        $conf['auth']['auth_AD']['domain_controllers'] = explode(',', $_ENV['AUTH_AD_DOMAIN_CONTROLLERS']);
+        $conf['auth']['auth_AD']['admin_username'] = isset($_ENV['AUTH_AD_ADMIN_USERNAME']) ? $_ENV['AUTH_AD_ADMIN_USERNAME'] : null;
+        $conf['auth']['auth_AD']['admin_password'] = isset($_ENV['AUTH_AD_ADMIN_PASSWORD']) ? $_ENV['AUTH_AD_ADMIN_PASSWORD'] : null;
+        $conf['auth']['auth_AD']['mr_allowed_users'] =  isset($_ENV['AUTH_AD_ALLOWED_USERS']) ? explode(',', $_ENV['AUTH_AD_ALLOWED_USERS']) : Array();
+        $conf['auth']['auth_AD']['mr_allowed_groups'] =  isset($_ENV['AUTH_AD_ALLOWED_GROUPS']) ? explode(',', $_ENV['AUTH_AD_ALLOWED_GROUPS']) : Array();
+    }
+
+
 	if (isset($_ENV['ADMIN_PASSWORD'])) {
         $auth_config['admin'] = $_ENV['ADMIN_PASSWORD'];
     } else {

@@ -44,3 +44,14 @@ The following variables are exposed for configuration via environment:
 - `CLIENT_PASSPHRASES`: A comma delimited list of accepted passphrases.
 - `APPS_TO_TRACK`: A comma delimited list of application names to display on the applications report.
 
+Active Directory Authentication
+-------------------------------
+
+- `AUTH_AD_DOMAIN_CONTROLLERS`: A comma delimited list of domain controllers to contact for authentication.
+- `AUTH_AD_ACCOUNT_SUFFIX`: The UPN suffix eg. `@domain.local`.
+- `AUTH_AD_BASE_DN`: The base DN for binding, eg. `DC=domain,DC=local`. If not set will be auto detected.
+- `AUTH_AD_ADMIN_USERNAME`: The username to use if unauthenticated queries are not allowed.
+- `AUTH_AD_ADMIN_PASSWORD`: The password to use if unauthenticated queries are not allowed.
+- `AUTH_AD_ALLOWED_USERS`: A comma delimited list of users who are allowed access.
+- `AUTH_AD_ALLOWED_GROUPS`: A comma delimited list of AD groups who are allowed access. 
+                         
