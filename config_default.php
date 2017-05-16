@@ -179,7 +179,7 @@
 	| For more information, see docs/business_units.md
 	|
 	*/
-	$conf['enable_business_units'] = FALSE;
+	$conf['enable_business_units'] = isset($_ENV['ENABLE_BUSINESS_UNITS']) && $_ENV['ENABLE_BUSINESS_UNITS'] === 'TRUE' ? TRUE : FALSE;
 
 	/*
 	|===============================================
@@ -326,7 +326,7 @@
 	|
 	|
 	*/
-    $conf['client_passphrases'] = array();
+    $conf['client_passphrases'] = isset($_ENV['CLIENT_PASSPHRASES']) ? explode(',', $_ENV['CLIENT_PASSPHRASES']) : array();
 
 	/*
 	|===============================================
@@ -480,7 +480,7 @@
 	| $conf['apps_to_track'] = array('Flash Player', 'Java', 'Firefox', 'Microsoft Excel');
 	|
 	*/
-	$conf['apps_to_track'] = array('Safari');
+	$conf['apps_to_track'] = isset($_ENV['APPS_TO_TRACK']) ? explode(',', $_ENV['APPS_TO_TRACK']) : array('Safari');
 
 	/*
 	|===============================================

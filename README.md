@@ -35,7 +35,12 @@ Environment Variables
 The following variables are exposed for configuration via environment:
 
 - `SITENAME`: The name of your site, displayed in the title.
-- `ADMIN_PASSWORD`: If you are using local authentication ONLY, the password for the *admin* account.
+- `ADMIN_PASSWORD`: If you are using local authentication ONLY, the password hash for the *admin* account. Default is
+    the password `admin`.
 - `MODULES`: A comma delimited list of enabled modules.
 - `IP_RANGES`: A comma delimited list of ip ranges to show in the network module.
-- `ALLOW_MIGRATIONS`: Allow database schema migrations (upgrades).
+- `ALLOW_MIGRATIONS`: Set to `TRUE` to allow database schema migrations (upgrades).
+- `ENABLE_BUSINESS_UNITS`: Set to `TRUE` to enable business unit functionality.
+- `CLIENT_PASSPHRASES`: A comma delimited list of accepted passphrases.
+- `APPS_TO_TRACK`: A comma delimited list of application names to display on the applications report.
+
