@@ -22,7 +22,7 @@
 	| figure out how to rewrite urls in the server of your choice.
 	|
 	*/
-	$conf['index_page'] = 'index.php?';
+	$conf['index_page'] = '';
 
 	/*
 	|===============================================
