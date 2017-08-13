@@ -1,8 +1,14 @@
 FROM php:7-apache
 
-RUN apt-get update \
-    && apt-get install -y libldap2-dev libcurl4-openssl-dev libxml2-dev\
-    && docker-php-ext-install -j$(nproc) curl pdo_mysql soap
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y libldap2-dev \
+    libcurl4-openssl-dev \
+    libxml2-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ && \
+    docker-php-ext-install -j$(nproc) curl pdo_mysql soap ldap
 
 RUN mkdir /var/www/munkireport
 
